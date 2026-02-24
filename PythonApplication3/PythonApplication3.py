@@ -2,9 +2,7 @@
 import itertools
 import tkinter as tk
 
-# =========================
-# Универсальное решение через вершины
-# =========================
+
 def find_vertices(lines, check):
     points = []
     for (A1, b1), (A2, b2) in itertools.combinations(lines, 2):
@@ -18,9 +16,6 @@ def find_vertices(lines, check):
     return points
 
 
-# =========================
-# Отрисовка
-# =========================
 scale = 60
 offset = 50
 
@@ -37,9 +32,6 @@ def draw_points(points):
         canvas.create_oval(cx-4, cy-4, cx+4, cy+4, fill="red")
 
 
-# =========================
-# Система (a)
-# =========================
 def system_a():
     canvas.delete("all")
     draw_axes()
@@ -64,9 +56,6 @@ def system_a():
     result_label.config(text=f"Вершины (a):\n{points}")
 
 
-# =========================
-# Система (b)
-# =========================
 def system_b():
     canvas.delete("all")
     draw_axes()
@@ -90,10 +79,6 @@ def system_b():
 
     result_label.config(text=f"Вершины (b):\n{points}")
 
-
-# =========================
-# Производственная задача
-# =========================
 def production_task():
     canvas.delete("all")
     draw_axes()
@@ -139,10 +124,6 @@ def production_task():
     else:
         result_label.config(text="Допустимых решений нет")
 
-
-# =========================
-# Интерфейс
-# =========================
 window = tk.Tk()
 window.title("Решение задач ЛП")
 
@@ -158,5 +139,6 @@ tk.Button(frame, text="Производственная задача", command=p
 
 result_label = tk.Label(window, text="", font=("Arial", 11))
 result_label.pack(pady=10)
+
 
 window.mainloop()
